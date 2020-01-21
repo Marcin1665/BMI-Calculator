@@ -18,30 +18,29 @@ public class AppController {
   @Autowired
   private ResultService service;
 
-  @RequestMapping(value = "/", method = {RequestMethod.GET, RequestMethod.POST})
-  public String showNewProductPage(@RequestParam(required = false) Integer weight,
-                                   @RequestParam(required = false) Integer height,
-                                   ModelMap model) {
-    if (weight != null && height != null) {
-      DecimalFormat decimalFormat = new DecimalFormat("###.#");
-      Double bmi = Double.valueOf((weight / (height * height)) * 10000);
-      model.put("bmi",decimalFormat.format(bmi));
-    }
-    Result result = new Result();
-    model.addAttribute("result", result);
+  @GetMapping("/")
+
+  public String home() {
 
     return "calculator";
+
   }
 
-  @RequestMapping(value = "/save", method = RequestMethod.POST)
-  public String saveProduct(@ModelAttribute("result") Result result) {
+  @RequestMapping(value = "/save", method = {RequestMethod.GET, RequestMethod.POST})
+  public String getValue(@RequestParam Double weight,
+                         @RequestParam Double height,
+                         Double bmi,
+                         ModelMap model,
+                         @ModelAttribute("result") Result result) {
     service.save(result);
-
-    return "redirect:/";
+    bmi =(weight / (height * height)) * 10000;
+    double bmiTwoDecimalPlaces = Math.round(bmi * 100.0) / 100.0;
+    model.addAttribute("bmi", bmiTwoDecimalPlaces);
+    return "valueOfBMI";
   }
 
   @RequestMapping("/results")
-  public String viewHomePage(Model model) {
+  public String viewAllResults(Model model) {
     List<Result> listResults = service.listAll();
     model.addAttribute("listResults", listResults);
 
@@ -49,24 +48,26 @@ public class AppController {
   }
 
 
-
   @RequestMapping("/delete/{id}")
-  public String deleteProduct(@PathVariable(name = "id") int id) {
+  public String deleteRecord(@PathVariable(name = "id") int id) {
     service.delete(id);
     return "redirect:/";
   }
 
-//
-//  @GetMapping("/")
-//  public String show(@RequestParam(required = false) Double weight,
-//                     @RequestParam(required = false) Integer height,
+
+//  @GetMapping(value = "/")
+//  public String show(@RequestParam Integer weight,
+//                     @RequestParam Integer height,
 //                     Model model) {
 //    if (weight != null && height != null) {
 //      DecimalFormat decimalFormat = new DecimalFormat("###.#");
-//      Double bmi = (weight / (height * height)) * 10000;
+//      Double bmi;
+//      bmi = Double.valueOf((weight / (height * height)) * 10000);
 //      model.addAttribute("bmi", bmi);
 //    }
 //    return "calculator";
+//
+//
 //
 //}
 }

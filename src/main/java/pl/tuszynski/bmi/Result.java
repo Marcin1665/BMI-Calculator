@@ -7,8 +7,8 @@ import javax.persistence.*;
 public class Result {
   private Long id;
   private String nickname;
-  private Integer weight;
-  private Integer height;
+  private Double weight;
+  private Double height;
   private Double bmi;
 
 
@@ -35,20 +35,20 @@ public class Result {
   }
 
 
-  public Integer getWeight() {
+  public Double getWeight() {
     return weight;
   }
 
-  public void setWeight(Integer weight) {
+  public void setWeight(Double weight) {
     this.weight = weight;
   }
 
 
-  public Integer getHeight() {
+  public Double getHeight() {
     return height;
   }
 
-  public void setHeight(Integer height) {
+  public void setHeight(Double height) {
     this.height = height;
   }
 
