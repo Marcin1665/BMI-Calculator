@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.tuszynski.bmi.Result;
 import pl.tuszynski.bmi.Service.ResultService;
 
+import javax.websocket.server.PathParam;
 import java.text.DecimalFormat;
 import java.util.List;
 

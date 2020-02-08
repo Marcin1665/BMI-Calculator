@@ -1,34 +1,60 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" lang="pl">
-<head>
-  <meta charset="utf-8" />
-  <title>Create New Product</title>
-</head>
-<body>
-<div align="center">
-  <h1>Create New Product</h1>
-  <br />
-  <form action="#" th:action="@{/save}" th:object="${result}" method="post">
+<html>
 
-    <table border="0" cellpadding="10">
-      <tr>
-        <td>Nickname:</td>
-        <td><input type="text" name="nickname"/></td>
-      </tr>
-      <tr>
-        <td>Waga:</td>
-        <td><input type="number" name="weight"/></td>
-      </tr>
-      <tr>
-        <td>Wzrost:</td>
-        <td><input type="number" name="height"/></td>
-      </tr>
-      <tr>
-        <td colspan="2"><button type="submit">Save</button> </td>
-      </tr>
-    </table>
-  </form>
-</div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Contact Us - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=bf6d0bcfc1e988221ef8260924b0c742">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css?h=b4499fa83df1fc5ab1145f33930d2210">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="#">Kalkulator BMI</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/calculator.html">Kalkulator</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/all_results.html">OSTATNIE WYNIKI</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page contact-us-page">
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading"><label></label>
+                    <h1></h1>
+                </div>
+                <form>
+                    <div class="form-group"><label>Nick</label><input class="form-control" type="text" name="nickname"></div>
+                    <div class="form-group"><label>Wzrost</label><input class="form-control" type="number" name="height"></div>
+                    <div class="form-group"><label>Waga</label><input class="form-control" type="number" name="weight"></div><button class="btn btn-primary btn-block" type="submit">Sprawdź !</button></form>
+            </div>
+        </section>
+    </main>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"><input class="form-control-plaintext" type="text" value="Plain Text Value" readonly=""></div>
+                <div class="col-md-4"><input class="form-control-plaintext" type="text" value="Plain Text Value" readonly=""></div>
+                <div class="col-md-4"><input class="form-control-plaintext" type="text" value="Plain Text Value" readonly=""></div>
+            </div>
+        </div>
+    </div>
+    <div></div>
+    <footer class="page-footer dark">
+        <div class="footer-copyright">
+            <p>© 2020Copyright Text</p>
+        </div>
+    </footer>
+    <script src="assets/js/jquery.min.js?h=83e266cb1712b47c265f77a8f9e18451"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js?h=63715b63ee49d5fe4844c2ecae071373"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="assets/js/script.min.js?h=a600b8e7e9619265383470da5f98b4f6"></script>
 </body>
+
 </html>
