@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.tuszynski.bmi.Repository.ResultRepository;
-import pl.tuszynski.bmi.Result;
+import pl.tuszynski.bmi.Model.Result;
 
 @Service
 @Transactional
