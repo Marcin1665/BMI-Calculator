@@ -1,76 +1,37 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
-
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Contact Us - Brand</title>
-    <link rel="stylesheet" th:href="/assets/bootstrap/css/bootstrap.min.css?h=bf6d0bcfc1e988221ef8260924b0c742">
-    <link rel="stylesheet" th:href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
-    <link rel="stylesheet" th:href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
-    <link rel="stylesheet" th:href="/assets/css/styles.min.css?h=b4499fa83df1fc5ab1145f33930d2210">
+  <meta charset="utf-8"/>
+  <title>Product Manager</title>
 </head>
-
-<body class="text-center" style="filter: sepia(0%);">
-    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-        <div class="container"><a class="navbar-brand logo" href="#">Kalkulator BMI</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse"
-                id="navcol-1">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/calculator.html">Kalkulator</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/results.html">OSTATNIE WYNIKI</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <main class="text-center page contact-us-page">
-        <section class="text-center align-self-center clean-block clean-form dark">
-            <div class="container">
-                <h1 class="text-center">Ostatnie wyniki</h1>
-            </div>
-            <div class="table-responsive text-justify">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Nickname</th>
-                            <th>Wzrost</th>
-                            <th>Waga</th>
-                            <th>BMI</th>
-                            <th>Akcje</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Cell 1</td>
-                            <td>Cell 2</td>
-                            <td>Cell 3</td>
-                            <td>Cell 4</td>
-                            <td>Cell 5</td>
-                        </tr>
-                        <tr></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </main>
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4"><input class="form-control-plaintext" type="text" value="Plain Text Value" readonly=""></div>
-                <div class="col-md-4"><input class="form-control-plaintext" type="text" value="Plain Text Value" readonly=""></div>
-                <div class="col-md-4"><input class="form-control-plaintext" type="text" value="Plain Text Value" readonly=""></div>
-            </div>
-        </div>
-    </div>
-    <footer class="text-center justify-content-end m-auto page-footer dark">
-        <div class="align-items-end footer-copyright">
-            <p>© 2020 Copyright Text</p>
-        </div>
-    </footer>
-    <script src="/assets/js/jquery.min.js?h=83e266cb1712b47c265f77a8f9e18451"></script>
-    <script src="/assets/bootstrap/js/bootstrap.min.js?h=63715b63ee49d5fe4844c2ecae071373"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="/assets/js/script.min.js?h=a600b8e7e9619265383470da5f98b4f6"></script>
+<body>
+<div align="center">
+  <h1>Product List</h1>
+  <a href="/new">Create New Product</a>
+  <br/><br/>
+  <table border="1" cellpadding="10">
+    <thead>
+    <tr>
+      <th>Nickname</th>
+      <th>Wzrost</th>
+      <th>Waga</th>
+      <th>BMI</th>
+      <th>z</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="result : ${listResults}">
+      <td th:text="${result.nickname}">Name</td>
+      <td th:text="${result.height}">Brand</td>
+      <td th:text="${result.weight}">Made in</td>
+      <td th:text="${result.bmi}">Price</td>
+      <td>
+        <a th:href="@{'/delete/' + ${result.id}}">Delete</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 </body>
-
 </html>
