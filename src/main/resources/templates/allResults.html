@@ -10,36 +10,36 @@
     <meta content="Source code generated using layoutit.com" name="description">
     <meta content="LayoutIt!" name="author">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
+
 </head>
-<body>
+<body style="background: #cadcfa">
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
             <ul class="nav nav-tabs nav-justified">
                 <li class="nav-item">
-                    <a class="nav-link " href="#">Kalkulator</a>
+                    <a class="nav-link" href="/">Kalkulator</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Wszystkie wyniki</a>
+                    <a class="nav-link active" href="/results">Wszystkie wyniki</a>
                 </li>
             </ul>
         </div>
         </nav>
     </div>
 </div>
-</div>
 <p></p>
 <div class="row" style="align-items: end">
     <div class="col-md-4">
     </div>
-
-
     <div class="col-md-4" style="align-self: center">
-        <table class="table table-dark">
+        <table class="table table-white">
             <thead>
             <tr>
                 <th>Nickname</th>
@@ -56,7 +56,7 @@
                 <td th:text="${result.weight}">Waga</td>
                 <td th:text="${result.bmi}">Wynik BMI</td>
                 <td>
-                    <button class="btn btn-primary" th:href="@{'/delete/' + ${result.id}}" type="button">Delete</button>
+                    <a th:href="@{'/delete/' + ${result.id}}">Delete</a>
                 </td>
             </tr>
             </tbody>

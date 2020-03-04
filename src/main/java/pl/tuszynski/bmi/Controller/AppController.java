@@ -20,7 +20,7 @@ public class AppController {
     @GetMapping("/")
     public String home() {
 
-        return "calculator_old";
+        return "calculator";
 
     }
 
@@ -34,10 +34,9 @@ public class AppController {
         result.setWeight(weight);
         result.setNickname(nickname);
         model.addAttribute("result", result);
-
         service.save(result);
 
-        return "valueOfBMI_old";
+        return "valueOfBMI";
     }
 
     @RequestMapping("/results")
@@ -45,7 +44,7 @@ public class AppController {
         List<Result> listResults = service.listAll();
         model.addAttribute("listResults", listResults);
 
-        return "allResults_old";
+        return "allResults";
     }
 
 
