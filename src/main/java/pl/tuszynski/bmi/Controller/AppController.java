@@ -27,11 +27,14 @@ public class AppController {
   @RequestMapping(value = "/valueOfBMI", method = {RequestMethod.GET, RequestMethod.POST})
   public String getValue(@RequestParam Double weight,
                          @RequestParam Double height,
+                         @RequestParam String nickname,
                          ModelMap model) {
     Result result = new Result();
     result.setHeight(height);
     result.setWeight(weight);
+    result.setNickname(nickname);
     model.addAttribute("result",result);
+
     service.save(result);
 
     return "valueOfBMI";
@@ -44,6 +47,8 @@ public class AppController {
 
     return "allResults";
   }
+
+
 
 
   @RequestMapping("/delete/{id}")
