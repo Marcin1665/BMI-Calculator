@@ -1,4 +1,5 @@
 package pl.tuszynski.bmi.Service;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,24 +12,24 @@ import pl.tuszynski.bmi.Model.Result;
 @Transactional
 public class ResultService {
 
-  @Autowired
-  private ResultRepository repo;
+    @Autowired
+    private ResultRepository repo;
 
-  public List<Result> listAll() {
-    return repo.findAll();
-  }
+    public List<Result> listAll() {
+        return repo.findAll();
+    }
 
-  public void save(Result result) {
-    repo.save(result);
-  }
+    public void save(Result result) {
+        repo.save(result);
+    }
 
-  public Result get(long id) {
-    return repo.findById(id).get();
-  }
+    public Result get(long id) {
+        return repo.findById(id).get();
+    }
 
-  public void delete(long id) {
-    repo.deleteById(id);
-  }
+    public void delete(long id) {
+        repo.deleteById(id);
+    }
 
 
 }

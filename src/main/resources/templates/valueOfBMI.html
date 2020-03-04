@@ -1,20 +1,89 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <title>Wszystkie wyniki</title>
+
+    <meta content="Source code generated using layoutit.com" name="description">
+    <meta content="LayoutIt!" name="author">
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
 </head>
 <body>
 
-<div class="container">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs nav-justified">
+                <li class="nav-item">
+                    <a class="nav-link " href="#">Kalkulator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Wszystkie wyniki</a>
+                </li>
+            </ul>
+        </div>
+        </nav>
+    </div>
+</div>
+</div>
+<p></p>
+<div class="row" style="align-items: end">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4" style="align-self: center">
+    </div>
+    <p></p>
+</div>
+<div class="row" style="align-items: end">
+    <div class="col-md-4">
+        <h2>
+            Kalkulator BMI
+        </h2>
+        <p>
+            Kalkulator BMI (Body Mass Index) daje każdemu możliwość szybkiego i wygodego obliczenia własnego
+            wskaźnika masy ciała. BMI obliczamy dzieląc masę ciała (w kilogramach) przez wzrost do kwadratu (w
+            metrach). Wskaźnik ten wykorzystywany jest przede wszystkim do oceny ryzyka pojawienia się groźnych
+            chorób: miażdżycy, choroby niedokrwiennej serca, udaru mózgu, czy nawet nowotworów. Większość tych
+            chorób jest związana z otyłością i dlatego kalkulator BMI to tak przydatne narzędzie.
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>
+            Czym jest BMI?
+        </h2>
+        <p>
+            BMI jest jednym z ważnych wskaźniów określających nasz stan fizyczny, ale niestety nie wystarczającym.
+            Bardzo ważnym uzupełnieniem BMI jest wskaźnik ilości tłuszczu brzusznego - zbyt duży może oznaczać
+            niebezpieczną otyłość brzuszną i to nawet przy prawidłowym BMI! Ponadto, paradoksalnie, badania naukowe
+            wskazują, że osoby z lekką nadwagą zwykle są zdrowsze i żyją dłużej od osób z tzw. "prawidłową wagą".
+            Pojawiają się nawet głosy, że ustalony arbitralnie przez WHO próg nadwagi (25) jest zbyt niski.
+        </p>
 
-  <div class="mt-5">  <h1 th:text="${result.getNickname()}"></h1></div>
-
-  <div class="mt-5">Wynik  <h1 th:text="${result.getBmi()}"></h1></div>
-
-  <a th:href="@{/}" class="btn btn-primary mt-5">Go back</a>
-  <a th:href="@{/allResults}" class="btn btn-primary mt-5">Go back</a>
+    </div>
+    <div class="col-md-4">
+        <il style="font-size: 12px; font-weight: bolder">
+            <ul>Zakresy wartości BMI:</ul>
+            <ul> mniej niż 16 - wygłodzenie</ul>
+            <ul>16 - 16.99 - wychudzenie</ul>
+            <ul>17 - 18.49 - niedowaga</ul>
+            <ul>18.5 - 24.99 - wartość prawidłowa</ul>
+            <ul> 25 - 29.99 - nadwaga</ul>
+            <ul>30 - 34.99 - I stopień otyłości</ul>
+            <ul>35 - 39.99 - II stopień otyłości</ul>
+            <ul>powyżej 40 - otyłość skrajna</ul>
+        </il>
+    </div>
+</div>
 </div>
 
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/scripts.js"></script>
 </body>
 </html>

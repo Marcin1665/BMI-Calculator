@@ -14,50 +14,47 @@ import java.util.List;
 @Controller
 public class AppController {
 
-  @Autowired
-  private ResultService service;
+    @Autowired
+    private ResultService service;
 
-  @GetMapping("/")
-  public String home() {
+    @GetMapping("/")
+    public String home() {
 
-    return "calculator";
+        return "calculator_old";
 
-  }
+    }
 
-  @RequestMapping(value = "/valueOfBMI", method = {RequestMethod.GET, RequestMethod.POST})
-  public String getValue(@RequestParam Double weight,
-                         @RequestParam Double height,
-                         @RequestParam String nickname,
-                         ModelMap model) {
-    Result result = new Result();
-    result.setHeight(height);
-    result.setWeight(weight);
-    result.setNickname(nickname);
-    model.addAttribute("result",result);
+    @RequestMapping(value = "/valueOfBMI", method = {RequestMethod.GET, RequestMethod.POST})
+    public String getValue(@RequestParam Double weight,
+                           @RequestParam Double height,
+                           @RequestParam String nickname,
+                           ModelMap model) {
+        Result result = new Result();
+        result.setHeight(height);
+        result.setWeight(weight);
+        result.setNickname(nickname);
+        model.addAttribute("result", result);
 
-    service.save(result);
+        service.save(result);
 
-    return "valueOfBMI";
-  }
+        return "valueOfBMI_old";
+    }
 
-  @RequestMapping("/results")
-  public String viewAllResults(Model model) {
-    List<Result> listResults = service.listAll();
-    model.addAttribute("listResults", listResults);
+    @RequestMapping("/results")
+    public String viewAllResults(Model model) {
+        List<Result> listResults = service.listAll();
+        model.addAttribute("listResults", listResults);
 
-    return "allResults";
-  }
-
-
+        return "allResults_old";
+    }
 
 
-  @RequestMapping("/delete/{id}")
-  public String deleteRecord(@PathVariable(name = "id") int id) {
-    service.delete(id);
+    @RequestMapping("/delete/{id}")
+    public String deleteRecord(@PathVariable(name = "id") int id) {
+        service.delete(id);
 
-    return "redirect:/";
-  }
-
+        return "redirect:/";
+    }
 
 
 }
