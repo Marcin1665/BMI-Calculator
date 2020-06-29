@@ -55,5 +55,13 @@ public class AppController {
         return "redirect:/";
     }
 
+    @RequestMapping("/save")
+    public String showNewResult(Model model) {
+        Result result = new Result();
+        model.addAttribute("result", result);
+
+        return "valueOfBMI";
+    }
+
 
 }
