@@ -11,13 +11,6 @@ public class BmiApplication {
         SpringApplication.run(BmiApplication.class, args);
 
 
-        // INSERT
-
-        Result result = new Result();
-        result.setNickname("Sample user");
-        result.setHeight((double) 186);
-        result.setWeight((double) 90);
-        result.setBmi("24");
 
     }
 
