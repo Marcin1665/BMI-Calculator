@@ -33,6 +33,7 @@ public class AppController {
         result.setHeight(height);
         result.setWeight(weight);
         result.setNickname(nickname);
+        result.setBmi(String.format("%.2f%n", (weight / (height * height)) * 10000));
         model.addAttribute("result", result);
         service.save(result);
 

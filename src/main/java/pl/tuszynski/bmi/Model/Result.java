@@ -2,21 +2,25 @@ package pl.tuszynski.bmi.Model;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table
 public class Result {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nickname;
     private Double weight;
     private Double height;
     private String bmi;
 
+    public Result(){
 
-    public Result() {
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
     public Long getId() {
         return id;
     }
@@ -62,4 +66,14 @@ public class Result {
 
     }
 
+    @Override
+    public String toString() {
+        return "Result{" +
+                "id=" + id +
+                ", nickname='" + nickname + '\'' +
+                ", weight=" + weight +
+                ", height=" + height +
+                ", bmi='" + bmi + '\'' +
+                '}';
+    }
 }

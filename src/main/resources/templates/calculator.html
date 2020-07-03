@@ -1,128 +1,111 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Bootstrap Example</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style>
-
-
-        .carousel-inner img {
-            width: 100%; /* Set width to 100% */
-            margin: auto;
-            min-height:200px;
-        }
-
-        /* Hide the carousel text when the screen is less than 600 pixels wide */
-        @media (max-width: 600px) {
-            .carousel-caption {
-                display: none;
-            }
-        }
-        .container{
-            align-content: center;
-            margin-left: 20%;
-            margin-right: 20%;
-
-        }
-
-    </style>
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <title>Kalkulator</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" rel="stylesheet">
 </head>
-<div>
+
+<body>
 
 <div>
-<ul class="nav nav-tabs">
-<li class="nav-item">
-    <a class="nav-link active" href="/">Kalkulator</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="/results">Wszystkie wyniki</a>
-</li>
-</ul>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="/">Kalkulator</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/results">Wszystkie wyniki</a>
+        </li>
+    </ul>
 </div>
-
-<div align="center">
-    <h1>Create New Product</h1>
-    <br />
-    <form action="#" th:action="@{/valueOfBMI}" th:object="${result}"
-          method="post">
-
-        <table border="0" cellpadding="10">
-            <tr>
-                <td>Product Name:</td>
-                <td><label>
-                    <input type="text" th:field="*{nickname}" />
-                </label></td>
-            </tr>
-            <tr>
-                <td>Brand:</td>
-                <td><label>
-                    <input type="text" th:field="*{height}" />
-                </label></td>
-            </tr>
-            <tr>
-                <td>Brand:</td>
-                <td><label>
-                    <input type="text" th:field="*{weight}" />
-                </label></td>
-            </tr>
-            <tr>
-                <td colspan="2"><button type="submit">Save</button> </td>
-            </tr>
-        </table>
-    </form>
-</div>
-
-
-
-<div class="container text-center">
-    <div class="row">
-        <div class="row" style="align-items: end">
-            <div class="col-md-4">
-                <h2>
-                    Kalkulator BMI
-                </h2>
-                <p>
-                    Kalkulator BMI (Body Mass Index) daje każdemu możliwość szybkiego i wygodego obliczenia własnego
-                    wskaźnika masy ciała. BMI obliczamy dzieląc masę ciała (w kilogramach) przez wzrost do kwadratu (w
-                    metrach). Wskaźnik ten wykorzystywany jest przede wszystkim do oceny ryzyka pojawienia się groźnych
-                    chorób: miażdżycy, choroby niedokrwiennej serca, udaru mózgu, czy nawet nowotworów. Większość tych
-                    chorób jest związana z otyłością i dlatego kalkulator BMI to tak przydatne narzędzie.
-                </p>
+<div class="container my-2">
+    <div class="card">
+        <div class="card-body">
+            <div class="row h-100 justify-content-center align-items-center">
+                <div class="col-md-10">
+                    <table class="table table-striped table-responsive-md">
+                        <form action="#" method="post" th:action="@{/valueOfBMI}" th:object="${result}">
+                            <div class="form-group"><label>Nick</label><input class="form-control" name="nickname"
+                                                                              type="text"></div>
+                            <div class="form-group"><label>Wzrost</label><input class="form-control" name="height"
+                                                                                type="number"></div>
+                            <div class="form-group"><label>Waga</label><input class="form-control" name="weight"
+                                                                              type="number"></div>
+                            <button class="btn btn-primary btn-block" type="submit">Sprawdź !</button>
+                        </form>
+                    </table>
+                </div>
             </div>
-            <div class="col-md-4">
-                <h2>
-                    Czym jest BMI?
-                </h2>
-                <p>
-                    BMI jest jednym z ważnych wskaźniów określających nasz stan fizyczny, ale niestety nie wystarczającym.
-                    Bardzo ważnym uzupełnieniem BMI jest wskaźnik ilości tłuszczu brzusznego - zbyt duży może oznaczać
-                    niebezpieczną otyłość brzuszną i to nawet przy prawidłowym BMI! Ponadto, paradoksalnie, badania naukowe
-                    wskazują, że osoby z lekką nadwagą zwykle są zdrowsze i żyją dłużej od osób z tzw. "prawidłową wagą".
-                    Pojawiają się nawet głosy, że ustalony arbitralnie przez WHO próg nadwagi (25) jest zbyt niski.
-                </p>
 
+            <div class="container text-center">
+                <div class="row">
+                    <div class="row" style="align-items: end">
+                        <div class="col-md-4">
+                            <h2>
+                                Kalkulator BMI
+                            </h2>
+                            <p>
+                                Kalkulator BMI (Body Mass Index) daje każdemu możliwość szybkiego i wygodego obliczenia
+                                własnego
+                                wskaźnika masy ciała. BMI obliczamy dzieląc masę ciała (w kilogramach) przez wzrost do
+                                kwadratu (w
+                                metrach). Wskaźnik ten wykorzystywany jest przede wszystkim do oceny ryzyka pojawienia
+                                się groźnych
+                                chorób: miażdżycy, choroby niedokrwiennej serca, udaru mózgu, czy nawet nowotworów.
+                                Większość tych
+                                chorób jest związana z otyłością i dlatego kalkulator BMI to tak przydatne narzędzie.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>
+                                Czym jest BMI?
+                            </h2>
+                            <p>
+                                BMI jest jednym z ważnych wskaźniów określających nasz stan fizyczny, ale niestety nie
+                                wystarczającym.
+                                Bardzo ważnym uzupełnieniem BMI jest wskaźnik ilości tłuszczu brzusznego - zbyt duży
+                                może oznaczać
+                                niebezpieczną otyłość brzuszną i to nawet przy prawidłowym BMI! Ponadto, paradoksalnie,
+                                badania
+                                naukowe
+                                wskazują, że osoby z lekką nadwagą zwykle są zdrowsze i żyją dłużej od osób z tzw.
+                                "prawidłową
+                                wagą".
+                                Pojawiają się nawet głosy, że ustalony arbitralnie przez WHO próg nadwagi (25) jest zbyt
+                                niski.
+                            </p>
+
+                        </div>
+                        <div class="col-md-4">
+                            <il style="font-size: 12px; font-weight: bolder">
+                                <ul>Zakresy wartości BMI:</ul>
+                                <ul> mniej niż 16 - wygłodzenie</ul>
+                                <ul>16 - 16.99 - wychudzenie</ul>
+                                <ul>17 - 18.49 - niedowaga</ul>
+                                <ul>18.5 - 24.99 - wartość prawidłowa</ul>
+                                <ul> 25 - 29.99 - nadwaga</ul>
+                                <ul>30 - 34.99 - I stopień otyłości</ul>
+                                <ul>35 - 39.99 - II stopień otyłości</ul>
+                                <ul>powyżej 40 - otyłość skrajna</ul>
+                            </il>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4">
-                <il style="font-size: 12px; font-weight: bolder">
-                    <ul>Zakresy wartości BMI:</ul>
-                    <ul> mniej niż 16 - wygłodzenie</ul>
-                    <ul>16 - 16.99 - wychudzenie</ul>
-                    <ul>17 - 18.49 - niedowaga</ul>
-                    <ul>18.5 - 24.99 - wartość prawidłowa</ul>
-                    <ul> 25 - 29.99 - nadwaga</ul>
-                    <ul>30 - 34.99 - I stopień otyłości</ul>
-                    <ul>35 - 39.99 - II stopień otyłości</ul>
-                    <ul>powyżej 40 - otyłość skrajna</ul>
-                </il>
-            </div>
+
         </div>
     </div>
 </div>
 </div>
+</div>
 </body>
+
 </html>
+
+
+
 
