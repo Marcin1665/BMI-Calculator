@@ -1,4 +1,4 @@
-package pl.tuszynski.bmi.Controller;
+package pl.tuszynski.bmi.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,8 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import pl.tuszynski.bmi.Model.Result;
-import pl.tuszynski.bmi.Service.ResultService;
+import pl.tuszynski.bmi.model.Result;
+import pl.tuszynski.bmi.service.ResultService;
 
 import java.util.List;
 
@@ -55,7 +55,6 @@ public class AppController {
 
         return "redirect:/";
     }
-
 
 
 }

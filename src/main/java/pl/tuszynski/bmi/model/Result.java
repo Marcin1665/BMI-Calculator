@@ -1,4 +1,4 @@
-package pl.tuszynski.bmi.Model;
+package pl.tuszynski.bmi.model;
 
 import javax.persistence.*;
 
@@ -15,10 +15,9 @@ public class Result {
     private Double height;
     private String bmi;
 
-    public Result(){
+    public Result() {
 
     }
-
 
 
     public Long getId() {
@@ -56,14 +55,14 @@ public class Result {
         this.height = height;
     }
 
-    public void setBmi(String bmi) {
-        this.bmi = bmi;
-    }
-
     public String getBmi() {
 
         return String.format("%.2f%n", (weight / (height * height)) * 10000);
 
+    }
+
+    public void setBmi(String bmi) {
+        this.bmi = bmi;
     }
 
     @Override
